@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wishes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: "Poppins", sans-serif;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    text-align: center;
+    padding: 120px 20px 20px;
+  }
+
+  header h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 80px;
+    color: #f9d342;
+    text-shadow: 0 0 20px rgba(249,211,66,0.5);
+    animation: fadeInDown 1.7s ease;
+  }
+
+  .wishes-box {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 35px 40px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    border: 2px solid rgba(249,211,66,0.4);
+    box-shadow: 0 4px 35px rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    animation: fadeInUp 2s ease;
+  }
+
+  .wishes-box p {
+    line-height: 1.9;
+    font-size: 18px;
+  }
+
+  a.back-btn {
+    margin: 40px auto 60px;
+    display: block;
+    width: fit-content;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 2px solid #f9d342;
+    color: #f9d342;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+  }
+
+  a.back-btn:hover {
+    background: #f9d342;
+    color: #1d2a38;
+    box-shadow: 0 0 15px rgba(249,211,66,0.6);
+  }
+
+  footer {
+    margin-top: auto;
+    text-align: center;
+    color: #aaa;
+    padding: 20px;
+  }
+
+  @keyframes fadeInDown { from {opacity:0; transform:translateY(-40px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+    
+<audio id="bgMusic" autoplay loop>
+  <source src="wishes.mp3" type="audio/mpeg">
+</audio>
+      
+<script>
+    document.body.addEventListener("click", function() {
+    document.getElementById("bgMusic").play().catch(()=>{});
+   }, { once:true });  
+</script>
+      
+<header>
+  <h1>🎉 Wishes</h1>
+</header>
+
+<div class="wishes-box">
+  <p>
+    🌟 May this year bring you closer to every dream you’ve ever wished for.  
+    💪 May you grow stronger, braver, and more unstoppable than ever.  
+    😎 May every challenge turn into a blessing in disguise.  
+    🤍 May happiness follow you everywhere you go.  
+    ✨ And may your heart always stay full of peace and joy.  
+    <br><br>
+    Here's to another year of greatness —  
+    keep shining, keep winning, keep being YOU.  
+    Happy Birthday, King! 👑  
+  </p>
+</div>
+
+<a href="page2.html" class="back-btn">⬅ Back to Menu</a>
+
+<footer>
+  Made with 💛 just for you.
+</footer>
+
+</body>
+</html>

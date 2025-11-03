@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Albert</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    padding: 100px 20px 50px;
+  }
+
+  header h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 80px;
+    color: #f9d342;
+    text-shadow: 2px 2px 20px rgba(249, 211, 66, 0.5);
+    margin-bottom: 15px;
+    animation: fadeInDown 2s ease;
+  }
+
+  header p {
+    font-size: 20px;
+    opacity: 0.9;
+    animation: fadeInUp 3s ease;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(249, 211, 66, 0.5);
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-box:hover {
+    background: rgba(249, 211, 66, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(249, 211, 66, 0.4);
+  }
+
+  .nav-box a {
+    text-decoration: none;
+    color: #f9d342;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  footer a {
+    color: #f9d342;
+    text-decoration: none;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="happybirthday.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    document.body.addEventListener("click", function() {
+      document.getElementById("bgMusic").play().catch(()=>{});
+    }, { once:true });
+  </script>
+  
+<header>
+  <h1>Happy Birthday Sayang</h1>
+  <p>Choose one of the special sections below — each holds something made just for you.</p>
+</header>
+
+<div class="nav-container">
+  <div class="nav-box">
+    <a href="love.html">💌 Love Letter</a>
+  </div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-box">
+    <a href="wishes.html">🎉 Wishes</a>
+  </div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-box">
+    <a href="rules.html">⚖️ Do & Don’t</a>
+  </div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-box">
+    <a href="gallery.html">📸 Gallery</a>
+  </div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-box">
+    <a href="memo.html">🎬 Moments in Motion</a>
+  </div>
+</div>
+
+<footer>
+  <p>Made with 💛 for your special day | <a href="index.html">Back to Home</a></p>
+</footer>
+
+</body>
+</html>

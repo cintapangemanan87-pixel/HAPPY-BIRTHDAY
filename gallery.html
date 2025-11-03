@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364; --gold:#f9d342;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+    color:#fff;
+  }
+
+  header{ text-align:center; padding:100px 16px 24px; }
+  header h1{ font-family:"Great Vibes",cursive; font-size:56px; color:var(--gold); margin:0 0 6px; }
+  header p{ margin:0;color:rgba(255,255,255,0.85) }
+
+  .gallery-grid{
+    max-width:1100px;
+    margin:28px auto 60px;
+    padding:0 16px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:20px;
+  }
+
+  .photo-card{
+    background: rgba(255,255,255,0.06);
+    padding:14px;
+    border-radius:12px;
+    border: 1px solid rgba(249,211,66,0.12);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .photo-card h3{ margin:0; text-align:center; color:var(--gold); font-size:18px; }
+
+  .slider-container{
+    width:100%;
+    overflow:hidden;
+    border-radius:10px;
+    position:relative;
+  }
+
+  .slider{
+    display:flex;
+    flex-wrap:nowrap;
+    transition: transform 0.32s ease-in-out;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select:none;
+  }
+  .slider.dragging{ cursor: grabbing; }
+
+  .slide{
+    min-width:100%;
+    flex-shrink:0;
+  }
+
+  .slide img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+    border-radius:8px;
+  }
+
+  .caption{
+    text-align:center;
+    font-size:14px;
+    color:rgba(255,255,255,0.9);
+    padding:8px 4px 0;
+    min-height:40px;
+  }
+
+  .arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:22px;
+    color:var(--gold);
+    background:rgba(0,0,0,0.28);
+    width:36px;height:36px;border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    user-select:none;
+  }
+  .arrow.left{ left:8px }
+  .arrow.right{ right:8px }
+
+  .nav-btn{
+    display:block;
+    width:fit-content;
+    margin:10px auto 60px;
+    padding:10px 18px;
+    border-radius:30px;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .nav-btn:hover{
+    background:var(--gold);
+    color:#1d2a38;
+  }
+</style>
+</head>
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" autoplay loop>
+  <source src="gallery.mp3" type="audio/mpeg">
+</audio>
+<script>
+  document.body.addEventListener("click",()=> {
+    document.getElementById("bgMusic").play().catch(()=>{});
+  },{once:true});
+</script>
+
+<header>
+  <h1>📸 Gallery</h1>
+</header>
+
+<div class="gallery-grid">
+
+  <!-- CARD 1 -->
+  <div class="photo-card">
+    <h3>29-09-24</h3>
+    <div class="slider-container" data-slider="1">
+      <div class="slider" id="slider-1">
+        <div class="slide"><img src="1.jpeg"><div class="caption">first time fotbar</div></div>
+        <div class="slide"><img src="1.1.jpeg"><div class="caption">sumpah ini cinta dbuang malo sklii, 
+          <br>mana disini rame sekali lagi
+          <br>abe kwa lama mo pangge noh 
+          <br>padahal situ leh mau...</div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="1">&#10094;</div>
+      <div class="arrow right" data-arrow-for="1">&#10095;</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="photo-card">
+    <h3>25-11-14</h3>
+    <div class="slider-container" data-slider="2">
+      <div class="slider" id="slider-2">
+        <div class="slide"><img src="2.jpeg"><div class="caption">abe sweet seventeen</div></div>
+        <div class="slide"><img src="2.1.jpeg"><div class="caption">sebenarnya cinta disini smo kase tu kue
+          <br>sebelum bfoto tapi malu banyak orang 
+          <br>yah jadinnya fotbar dulu kase kuennya 
+          <br>belakangan wkwkw</div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="2">&#10094;</div>
+      <div class="arrow right" data-arrow-for="2">&#10095;</div>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="photo-card">
+    <h3>06-12-14</h3>
+    <div class="slider-container" data-slider="3">
+      <div class="slider" id="slider-3">
+        <div class="slide"><img src="3.jpeg"><div class="caption">first time fotbar dipohon natal</div></div>
+        <div class="slide"><img src="3.1.jpeg"><div class="caption">ini natal sekolah, asikdeh punya partner foto 
+          <br> di pohon natal, tapi setelah ini putus...
+          <br>hehe..maafkann..^^
+          <br>JANJI TAHUN INI FOTO LAGI</div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="3">&#10094;</div>
+      <div class="arrow right" data-arrow-for="3">&#10095;</div>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="photo-card">
+    <h3>13-05-25</h3>
+    <div class="slider-container" data-slider="4">
+      <div class="slider" id="slider-4">
+        <div class="slide"><img src="4.jpeg"><div class="caption">cegil mode on</div></div>
+        <div class="slide"><img src="4.1.jpeg"><div class="caption">akhirnnya setelah berbulan-bulan
+          <br>asing torang tbtb foto bareng lagi yaa 
+          <br>biar kwa so t asang-asang
+          <br>mar kapan lagi yakan</div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="4">&#10094;</div>
+      <div class="arrow right" data-arrow-for="4">&#10095;</div>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="photo-card">
+    <h3>04-06-25</h3>
+    <div class="slider-container" data-slider="5">
+      <div class="slider" id="slider-5">
+        <div class="slide"><img src="5.jpeg"><div class="caption">penamatan sekolah</div></div>
+        <div class="slide"><img src="5.1.jpeg"><div class="caption">kali ini puji Tuhan abe
+        <br>yang pangge fotbar, tapii.. disini..
+        <br>TORANG DUAAAAAAAAAA..
+        <br>SO BALIKANNN YEYYY
+        </div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="5">&#10094;</div>
+      <div class="arrow right" data-arrow-for="5">&#10095;</div>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="photo-card">
+    <h3>08-06-25</h3>
+    <div class="slider-container" data-slider="6">
+      <div class="slider" id="slider-6">
+        <div class="slide"><img src="6.jpeg"><div class="caption">first time photo box</div></div>
+        <div class="slide"><img src="6.1.jpeg"><div class="caption">sebenarnnya ini tidak terduga
+        <br>dan tidak terencana, cinta mau torang
+        <br>photo box sering-sering
+        <br>plisss...
+        </div></div>
+      </div>
+      <div class="arrow left" data-arrow-for="6">&#10094;</div>
+      <div class="arrow right" data-arrow-for="6">&#10095;</div>
+    </div>
+  </div>
+
+</div>
+
+<a href="page2.html" class="nav-btn">⬅ Back to Menu</a>
+
+<!-- ✅ JAVASCRIPT — Swipe FIXED -->
+<script>
+function initSlider(sliderId){
+  const slider = document.getElementById(sliderId);
+  let index = 0;
+  const total = slider.children.length;
+
+  let isDragging = false;
+  let startX = 0;
+  let current = 0;
+  let prev = 0;
+
+  const setPos = () =>{
+    slider.style.transform = `translateX(${current}px)`;
+  };
+
+  /* TOUCH START */
+  slider.addEventListener("touchstart",e=>{
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    slider.classList.add("dragging");
+  });
+
+  /* TOUCH MOVE */
+  slider.addEventListener("touchmove",e=>{
+    if(!isDragging) return;
+    const diff = e.touches[0].clientX - startX;
+    current = prev + diff;
+    setPos();
+    e.preventDefault();
+  },{passive:false});
+
+  /* TOUCH END */
+  slider.addEventListener("touchend",()=>{
+    isDragging = false;
+    slider.classList.remove("dragging");
+
+    const moved = current - prev;
+    if(moved < -50 && index < total-1) index++;
+    if(moved > 50 && index > 0) index--;
+
+    current = -index * slider.parentElement.offsetWidth;
+    prev = current;
+    setPos();
+  });
+
+  /* DESKTOP DRAG */
+  slider.addEventListener("mousedown",e=>{
+    isDragging = true;
+    startX = e.clientX;
+    slider.classList.add("dragging");
+  });
+
+  slider.addEventListener("mousemove",e=>{
+    if(!isDragging) return;
+    const diff = e.clientX - startX;
+    current = prev + diff;
+    setPos();
+  });
+
+  slider.addEventListener("mouseup",()=>{
+    isDragging = false;
+    slider.classList.remove("dragging");
+
+    const moved = current - prev;
+    if(moved < -50 && index < total-1) index++;
+    if(moved > 50 && index > 0) index--;
+
+    current = -index * slider.parentElement.offsetWidth;
+    prev = current;
+    setPos();
+  });
+
+  slider.addEventListener("mouseleave",()=>{
+    if(!isDragging) return;
+    isDragging = false;
+    slider.classList.remove("dragging");
+    current = -index * slider.parentElement.offsetWidth;
+    prev = current;
+    setPos();
+  });
+
+  /* ARROWS */
+  const n = sliderId.replace("slider-","");
+  const left = document.querySelector(`.arrow.left[data-arrow-for="${n}"]`);
+  const right = document.querySelector(`.arrow.right[data-arrow-for="${n}"]`);
+
+  left.onclick = ()=>{
+    if(index>0) index--;
+    current = -index * slider.parentElement.offsetWidth;
+    prev = current;
+    setPos();
+  };
+  right.onclick = ()=>{
+    if(index<total-1) index++;
+    current = -index * slider.parentElement.offsetWidth;
+    prev = current;
+    setPos();
+  };
+}
+
+/* ✅ Activate all 6 sliders */
+for(let i=1;i<=6;i++){
+  initSlider("slider-"+i);
+}
+</script>
+
+</body>
+</html>

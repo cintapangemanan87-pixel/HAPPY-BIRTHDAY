@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do & Don't</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: "Poppins", sans-serif;
+    color: white;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 120px 20px 10px;
+  }
+
+  header h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 80px;
+    color: #f9d342;
+    text-shadow: 0 0 20px rgba(249,211,66,0.5);
+    animation: fadeInDown 1.8s ease;
+  }
+
+  .list-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    animation: fadeInUp 2s ease;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.07);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid rgba(249,211,66,0.4);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+    transition: .3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card h3 {
+    color: #f9d342;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    line-height: 1.7;
+  }
+
+  a.back-btn {
+    margin: 40px auto;
+    display: block;
+    width: fit-content;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 2px solid #f9d342;
+    color: #f9d342;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+  }
+
+  a.back-btn:hover {
+    background: #f9d342;
+    color: #1d2a38;
+    box-shadow: 0 0 15px rgba(249,211,66,0.6);
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+  }
+
+  @keyframes fadeInDown { from {opacity:0; transform:translateY(-40px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+
+    <audio id="bgMusic" autoplay loop>
+        <source src="rules.mp3" type="audio/mpeg">
+      </audio>
+      
+      <script>
+        document.body.addEventListener("click", function() {
+          document.getElementById("bgMusic").play().catch(()=>{});
+        }, { once:true });
+      </script>
+
+<header>
+  <h1>⚖️ Do & Don't</h1>
+</header>
+
+<div class="list-container">
+
+  <div class="card">
+    <h3>✅ Do</h3>
+    <p>Take lots of pictures. Today is worth remembering.</p>
+  </div>
+
+  <div class="card">
+    <h3>🚫 Don’t</h3>
+    <p>Let stress ruin your day. Today is YOUR celebration.</p>
+  </div>
+
+</div>
+
+<a href="page2.html" class="back-btn">⬅ Back to Menu</a>
+
+<footer>
+  Made with 💛 just for you.
+</footer>
+
+</body>
+</html>
